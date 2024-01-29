@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- <style>* {border: 1px dashed blue;}</style> -->
+    <link rel="stylesheet" type="text/css" href="/styles/web.css">
+    <meta name="author" content= "Marko Šimić">
+    <meta name="description" content="web - trgovina za hranu">
+    <meta name="keywords" content="Hrana, meso, riba, mlijeko, voće, povrće">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="images/favico" href="/images/favicon.jpg">
+    <title><%=title%></title>
+</head>
+<body>
+
+    <%- include(`partials/header`); %>
+    
+    <div class="kosara">
+
+        <div id="zaglavlje">
+          <p id="naslov3">NAZIV</p>
+          <p id="praznina"></p>
+          <p id="naslov3">KOLIČINA</p>
+        </div>
+        
+        <div id="praznina2">
+
+        </div>
+
+       <div id="parent">
+
+            <% if (cart != undefined) { %>
+                <div id="proizvod">
+                <% for(let x in cart) { %>
+                    <p id="proizvodplus"><%=x.split(" - ")[1]%></p>
+                <% } %>
+                </div>
+            <% } else { %>
+                <p id="tekstkosare">košara je prazna!</p>
+            <% } %>
+          
+                
+            <% if (cart != undefined) {
+            %>
+            <div id="kolicina">
+                <% for(let x in cart) {
+                %>
+                <div id="kolicinaplus">
+                    <a id="znak"  href='/cart/remove/<%= x.split(" - ")[0]%>'> - </a>
+                    <p><%=cart[x]%></p>
+                    <a id="znak" href='/cart/add/<%= x.split(" - ")[0]%>'> + </a>
+                </div>
+                <% } %>
+                <%
+            } %>
+            </div> 
+
+        </div> 
+
+    </div>
+     
+
+</body>
+</html>

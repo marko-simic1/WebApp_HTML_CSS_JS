@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- <style>* {border: 1px dashed blue;}</style> -->
+    <link rel="stylesheet" type="text/css" href="/styles/web.css">
+    <meta name="author" content= "Marko Šimić">
+    <meta name="description" content="web - trgovina za hranu">
+    <meta name="keywords" content="Hrana, meso, riba, mlijeko, voće, povrće">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="images/favico" href="/images/favicon.jpg">
+
+    <title><%=title%></title>
+</head>
+<body>
+
+    <div id="grid-container">
+
+        <%- include(`partials/header`); %>
+
+        <div id="mainbody">
+            <div id="livo">
+
+                <ul id="listakategorija">
+
+                    <% for (let categorie of data.categories) {
+                      %> 
+                      <dt class <%=categorie.name %>><a href="/home/getProducts/<%= categorie.id%>"><%=categorie.name%></a></dt>
+                      <% } %>
+                    
+                </ul>
+
+
+                <div id="ispod-nav">
+                    <button class="botun">Kontakt</button> <br>
+                    <button class="botun">Newsletter</button> <br>
+                    <button class="botun">Pretplati se</button>
+                </div>
+            </div>
+
+            <div id="desno">
+
+                <div id="poruka">
+                    <p id="poruka-text">FOOD&CO nudi Vam širok opseg proizvoda potrebnih za savršen ručak!
+                                        <br>Nadamo se da ćete uživati u kupnji te da ćete nam se vratiti!</p>
+                    
+                </div>
+
+                <div id="slika-kategorije">
+                    <img src="/images/rucak.jpg" alt="rucak" id="slika-rucka">
+                </div>
+
+                <div id="proizvodi">
+                    
+                    
+                </div>
+
+                
+            </div>        
+        </div>
+    </div>
+    
+    
+</body>
+</html>
